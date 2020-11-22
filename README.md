@@ -25,15 +25,10 @@ The above two files are used for preprocessing. After running the above two file
 ## Packages Used ##
 
 1. Pandas: For easy data manipulation by use of DataFrames
-
 2. Numpy:For matrix multiplication
-
 3. Sklearn.model_selection: for train_test_split function
-
 4. Sklearn.metrics: for finding Mean squared Error
-
 5. Math: Sqrt function
-
 6. Time: to compute time taken by various techniques
 
 
