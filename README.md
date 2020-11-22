@@ -31,6 +31,11 @@ The above two files are used for preprocessing. After running the above two file
 5. Math: Sqrt function
 6. Time: to compute time taken by various techniques
 
+## Data Structures Used ##
+
+1. pandas.DataFrame: used to store the MovieLens dataset
+2. Dictionary: used to store user to movie and movie to user vectors for faster retrieval
+3. Numpy NDarray: for storing matrices in SVD and CUR procedures 
 
 ## Team Members ##
 - Soumil Agarwal &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   2017B4A71606H
