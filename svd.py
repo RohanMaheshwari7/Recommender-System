@@ -11,7 +11,6 @@ def compuation(train_new, testData):
         Training Set values
     testData : numpy.ndarray
         Test Set Values
-
     Returns
     -------
     RMSE : float
@@ -20,7 +19,6 @@ def compuation(train_new, testData):
         Returns the Spearman Rank Correlation
     top_K_precision : float
         Return the precision on Top K value
-
     """
     users_length = len(train_new)
     item_length = len(train_new[0])
@@ -71,14 +69,48 @@ def compuation(train_new, testData):
 
 
 def corr_matrix_construction(data, file_name):
+    """
     
+
+    Parameters
+    ----------
+    data : int
+        user count
+    file_name : string
+        File passed with previously obtained values
+
+    Returns
+    -------
+    matrix_correlation : np.ndarray
+        Correlation matrix obtained
+
+    """
     users_length = len(data)
     matrix_correlation = np.corrcoef(data)[:users_length+1, :users_length+1]
     np.save(file_name, matrix_correlation)
     return matrix_correlation
 
 def collaborative_basic(trainData, testData, matrix_correlation, K):
+    """
     
+
+    Parameters
+    ----------
+    trainData : np.ndarray
+        Training dataset values
+    testData : np,ndarray
+        Test dataset values
+    matrix_correlation : np.ndarray
+        correlation matrix
+    K : int
+        
+
+    Returns
+    -------
+    train_new : np.ndarray
+        Reconstructed training set
+
+    """
     users_length = len(trainData)#6040
     item_length = len(trainData[0])#3952
     
@@ -106,17 +138,14 @@ def svd_matrix_construction(A):
     ----------
     A : np.ndarray
         Utility Matrix
-
     Returns
     -------
-
     u : np.ndarray
         user to conept similarlity matrix
     vt : np.ndarray
         transpose of movie to concept similarity matrix
     sigma : np.ndarray
         strength of each concept
-
     Normalizes the Utility matrix consisting of users, movies and their ratings by
     replacing 0s in a row by their row mean.Performs SVD on the normalized utility
     matrix and factorizes it into U, S and V*
@@ -169,7 +198,6 @@ def svd_matrix_construction(A):
 def energy_90_percent(u, vt, sigma):
     """
     Function for SVD with 90% retained energy    
-
     Parameters
     ----------
     u : np.ndarray
@@ -178,7 +206,6 @@ def energy_90_percent(u, vt, sigma):
         transpose of movie to concept similarity matrix
     sigma : np.ndarray
         strength of each concept
-
     Returns
     -------
     u_n : np.ndarray
@@ -187,7 +214,6 @@ def energy_90_percent(u, vt, sigma):
         Modied vt
     sigma_n : np.ndarray
         Modied sigma
-
     """
     
     sigma_size = sigma.shape[0]
