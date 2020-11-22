@@ -4,6 +4,9 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 
 def createUtilityMatrix(df):
+	'''
+	Helper function to create user x movie matrix and other utilities 
+	'''
 	matrix={}
 	inverse_matrix={}
 	l = len(df)
@@ -59,9 +62,26 @@ def predict_item(A_train, inv_mat, biasU, biasM, gm, user, movie):
 	'''
 	Uses item - item filtering approach
 	Predicts the rating given by user 'user' to movie 'movie'
-	Arguments:
-		user: userid
-		movie: movieid
+    Parameters
+    ----------
+    A_train : dict
+    	utility matrix in dictionary format
+    inv_mat : dict
+    	inverse dictionary from movies to users
+    biasU : dict
+		User bias
+    biasM : dict
+		Movie bias
+    gm : integer
+		global mean over all the movies
+    user : integer
+		userID
+    movie : integer
+    	movieID
+    Returns
+    ----------
+    rating : integer
+    	predicted rating
 	'''
 	ium = inv_mat
 	um = A_train
@@ -202,15 +222,14 @@ def calc_loss(data):
 	split_value = 100
 	train_data = data.iloc[:-split_value, :]
 	test_data = data.iloc[-split_value:,:]
-	print(test_data.head())
+	# print(test_data.head())
 
 	A_train, inv_mat, biasU, biasM, gm = createUtilityMatrix(train_data)
 	A_test, inv_mat_test, biasU_test, biasM_test, gm_test = createUtilityMatrix(test_data)
 
-	print("Matrices created successfully")
+	# print("Matrices created successfully")
 
 	testmatrix = A_test
-	print("Number of rows in test matrix is = ", len(A_test))
 	#Root mean square 
 	rmse_u = 0
 	rmse_i = 0
@@ -240,7 +259,7 @@ def calc_loss(data):
 			rmse_u += (actual - predu) ** 2
 			rmse_i += (actual - predi) ** 2
 			rmse_b += (actual - predb) ** 2
-			print(cnt,user,movie,actual,predi,predb)
+			# print(cnt,user,movie,actual,predi,predb)
 			cnt += 1
 		#sort in reverse based on first val and check first 5
 		pcnt = 0

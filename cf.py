@@ -5,9 +5,12 @@ import colabfilter
 
 
 def main():
+	'''
+	Helper function to read data and call colabfilter module
+	'''
 	data = pd.read_csv('ratings.dat',sep="::",usecols=[0,1,2],names=['user','movie','rating'],engine='python')
 	# data = data.drop(['timestamp'],axis = 1)
-	print(data.head())
+	# print(data.head())
 	# print(data.describe()) #6040 users x 3952 movies
 
 

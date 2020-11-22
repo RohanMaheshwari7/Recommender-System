@@ -1,0 +1,787 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.1" />
+<title>Recommender-System.svd API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>Recommender-System.svd</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import numpy as np
+from math import sqrt
+import time
+
+
+def compuation(train_new, testData):
+    &#34;&#34;&#34;
+    Parameters
+    ----------
+    train_new : numpy.ndarray
+        Training Set values
+    testData : numpy.ndarray
+        Test Set Values
+    Returns
+    -------
+    RMSE : float
+        Returns the Root Mean Square Error value
+    SR_corr : float
+        Returns the Spearman Rank Correlation
+    top_K_precision : float
+        Return the precision on Top K value
+    &#34;&#34;&#34;
+    users_length = len(train_new)
+    item_length = len(train_new[0])
+    error_square, test_n = 0, 0
+    for user in range(users_length):
+        for item in range(item_length):
+            if testData[user, item] == 0:
+                continue
+            else:
+                error_square += (testData[user, item] - train_new[user, item])**2
+                test_n += 1
+    
+    SR_corr = 1 - ((6 * error_square) / (test_n * (test_n**2 - 1)))
+    RMSE = (error_square / test_n) ** 0.5
+
+    top_K_precision = 0
+    K = 10
+    THRESHOLD = 3.5
+    rated_movies_count = {}
+    i = 0
+    for user in testData:
+        rated_movies_count[i] = user[user &gt; 0].size
+        i = i + 1
+    i = 0
+    precision_values = []
+    for user in train_new:
+        if rated_movies_count[i] &lt; K:
+            i = i + 1
+            continue
+        top_k_indices = (-user).argsort()[:K]
+        top_k_values = [(index, user[index]) for index in top_k_indices]
+        recommendations = []
+        for (index, user[index]) in top_k_values:
+            if(user[index] &gt;= 3.5):
+                recommendations.append((index, user[index]))
+                if len(recommendations) == K:
+                    break
+        cnt = 0
+        for tup in recommendations:
+            if testData[i][tup[0]] &gt;= THRESHOLD:
+                cnt = cnt + 1
+        if len(recommendations) &gt; 0:
+            precision = cnt/len(recommendations)
+            precision_values.append(precision)
+        i = i + 1
+    top_K_precision = sum(precision_values) / len(precision_values)
+    return RMSE, SR_corr, top_K_precision
+
+
+def corr_matrix_construction(data, file_name):
+    &#34;&#34;&#34;
+    
+
+    Parameters
+    ----------
+    data : int
+        user count
+    file_name : string
+        File passed with previously obtained values
+
+    Returns
+    -------
+    matrix_correlation : np.ndarray
+        Correlation matrix obtained
+
+    &#34;&#34;&#34;
+    users_length = len(data)
+    matrix_correlation = np.corrcoef(data)[:users_length+1, :users_length+1]
+    np.save(file_name, matrix_correlation)
+    return matrix_correlation
+
+def collaborative_basic(trainData, testData, matrix_correlation, K):
+    &#34;&#34;&#34;
+    
+
+    Parameters
+    ----------
+    trainData : np.ndarray
+        Training dataset values
+    testData : np,ndarray
+        Test dataset values
+    matrix_correlation : np.ndarray
+        correlation matrix
+    K : int
+        
+
+    Returns
+    -------
+    train_new : np.ndarray
+        Reconstructed training set
+
+    &#34;&#34;&#34;
+    users_length = len(trainData)#6040
+    item_length = len(trainData[0])#3952
+    
+    train_new = np.zeros((users_length, item_length))
+    for predicted_users in range(users_length):
+        K_closest = (-matrix_correlation[predicted_users]).argsort()[:K]
+        for item in range(item_length):
+            if testData[predicted_users, item] == 0:
+                continue
+            sum_corr = 0
+            for user_close in K_closest:
+                if trainData[user_close, item] != 0:
+                    train_new[predicted_users, item] += matrix_correlation[predicted_users, user_close] * trainData[user_close, item]
+                    sum_corr += matrix_correlation[predicted_users, user_close]
+            if sum_corr != 0:
+                train_new[predicted_users, item] /= sum_corr
+    return train_new
+
+
+def svd_matrix_construction(A):
+    &#34;&#34;&#34;
+    Function for SVD to get U , sigma and Vt
+    
+    Parameters
+    ----------
+    A : np.ndarray
+        Utility Matrix
+    Returns
+    -------
+    u : np.ndarray
+        user to conept similarlity matrix
+    vt : np.ndarray
+        transpose of movie to concept similarity matrix
+    sigma : np.ndarray
+        strength of each concept
+    Normalizes the Utility matrix consisting of users, movies and their ratings by
+    replacing 0s in a row by their row mean.Performs SVD on the normalized utility
+    matrix and factorizes it into U, S and V*
+    
+    &#34;&#34;&#34;
+    
+    At = np.transpose(A)
+    A_At = np.matmul(A, At)
+    num_users = A.shape[0]
+    num_movies = A.shape[1]
+    At_A = np.matmul(At, A)
+    del A
+    del At
+    
+    eigen_value_u, eigen_vector_u = np.linalg.eigh(A_At)
+    eigen_value_v, eigen_vector_v = np.linalg.eigh(At_A)
+    
+    pos_eigen_u = []
+    pos_eigen_v = []
+    
+    for val in eigen_value_u.tolist():
+        if(val &gt; 0):
+            pos_eigen_u.append(val)
+    for val in eigen_value_v.tolist():
+        if(val &gt; 0):
+            pos_eigen_v.append(val)
+    
+    pos_eigen_u.reverse()
+    pos_eigen_v.reverse()
+    squareroot_eigen_u = [sqrt(val) for val in pos_eigen_u]
+    squareroot_eigen_u = np.array(squareroot_eigen_u)
+    
+    sigma = np.diag(squareroot_eigen_u)
+    sigma_size = sigma.shape[0]
+    
+    ut = np.zeros(shape = (sigma_size, num_users))
+    vt = np.zeros(shape = (sigma_size, num_movies))
+    i = 0
+    for val in pos_eigen_u:
+        ut[i] = eigen_vector_u[eigen_value_u.tolist().index(val)]
+        i = i + 1
+    i = 0
+    for val in pos_eigen_v:
+        vt[i] = eigen_vector_v[eigen_value_v.tolist().index(val)]
+        i = i + 1
+    u = np.transpose(ut)
+    del ut
+    return u, vt, sigma
+
+def energy_90_percent(u, vt, sigma):
+    &#34;&#34;&#34;
+    Function for SVD with 90% retained energy    
+    Parameters
+    ----------
+    u : np.ndarray
+        user to conept similarlity matrix
+    vt : np.ndarray
+        transpose of movie to concept similarity matrix
+    sigma : np.ndarray
+        strength of each concept
+    Returns
+    -------
+    u_n : np.ndarray
+        Modified u
+    vt_n : np.ndarray
+        Modied vt
+    sigma_n : np.ndarray
+        Modied sigma
+    &#34;&#34;&#34;
+    
+    sigma_size = sigma.shape[0]
+    sigma_square_sum = 0
+    eigen_values_reqd = np.zeros(sigma_size)
+    
+    for i in range(sigma_size):
+        sigma_square_sum += sigma[i][i] * sigma[i][i]
+    curr_sum = 0
+    
+    for i in range(sigma_size):
+        curr_sum += sigma[i][i] * sigma[i][i]
+        eigen_values_reqd[i] = sigma[i][i]
+        if (curr_sum/sigma_square_sum) &gt;= 0.9:
+            i = i + 1
+            break
+    
+    eigen_values_reqd = eigen_values_reqd[eigen_values_reqd &gt; 0]
+    sigma_n = np.diag(eigen_values_reqd)
+    u_n = np.transpose(np.transpose(u)[:sigma_n.shape[0]])
+    vt_n = vt[:sigma_n.shape[0]]
+    return u_n, vt_n, sigma_n
+
+
+def main():
+    
+    K = 50
+    trainData = np.load(&#39;train.npy&#39;)
+    testData = np.load(&#39;test.npy&#39;)
+    
+    
+    try:
+        svd_matrix_correlation = np.load(&#39;svd_correlation_matrix.npy&#39;)
+        svd_90_matrix_correlation = np.load(&#39;svd_90_correlation_matrix.npy&#39;)
+    except FileNotFoundError:
+        u, vt, sigma = svd_matrix_construction(trainData)
+        u_n, vt_n, sigma_n = energy_90_percent(u, vt, sigma)
+        user_projection = np.matmul(u, sigma)
+        users_projection_90 = np.matmul(u_n, sigma_n)
+        
+        svd_matrix_correlation = corr_matrix_construction(user_projection, &#39;svd_correlation_matrix.npy&#39;)
+        svd_90_matrix_correlation = corr_matrix_construction(users_projection_90, &#39;svd_90_correlation_matrix.npy&#39;)
+    
+    
+    t0 = time.time()
+    
+    result_svd = collaborative_basic(trainData, testData, svd_matrix_correlation, K)
+    RMSE_svd, SR_corr_svd, precisionTopK_svd = compuation(result_svd, testData)
+    
+    #del result_svd
+    #del svd_matrix_correlation
+    
+    t1 = time.time()
+    print(&#39;\n&#39;)
+    print(&#39;SVD Result&#39;)
+    print(&#39;RMSE = {}&#39;.format(RMSE_svd))
+    print(&#39;Precision on top K = {}&#39;.format(precisionTopK_svd))
+    print(&#39;Spearman Rank Correlation = {}&#39;.format(SR_corr_svd))
+    print(&#39;Time Taken = {}&#39;.format(t1-t0))
+
+    t2 = time.time()
+    
+    
+    result_svd_90 = collaborative_basic(trainData, testData, svd_90_matrix_correlation, K)
+    RMSE_svd_90, SR_corr_svd_90, precisionTopK_svd_90 = compuation(result_svd_90, testData)
+    t3 = time.time()
+    print(&#39;\n&#39;)
+    
+    print(&#39;SVD 90% energy Result&#39;)
+    print(&#39;RMSE = {}&#39;.format(RMSE_svd_90))
+    print(&#39;Precision on top K = {}&#39;.format(precisionTopK_svd_90))
+    print(&#39;Spearman Rank Correlation = {}&#39;.format(SR_corr_svd_90))
+    print(&#39;Time Taken = {}&#39;.format(t3-t2))
+
+    
+
+if __name__ == &#39;__main__&#39;:
+    main()</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="Recommender-System.svd.collaborative_basic"><code class="name flex">
+<span>def <span class="ident">collaborative_basic</span></span>(<span>trainData, testData, matrix_correlation, K)</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>trainData</code></strong> :&ensp;<code>np.ndarray</code></dt>
+<dd>Training dataset values</dd>
+<dt><strong><code>testData</code></strong> :&ensp;<code>np,ndarray</code></dt>
+<dd>Test dataset values</dd>
+<dt><strong><code>matrix_correlation</code></strong> :&ensp;<code>np.ndarray</code></dt>
+<dd>correlation matrix</dd>
+<dt><strong><code>K</code></strong> :&ensp;<code>int</code></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>train_new</code></strong> :&ensp;<code>np.ndarray</code></dt>
+<dd>Reconstructed training set</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def collaborative_basic(trainData, testData, matrix_correlation, K):
+    &#34;&#34;&#34;
+    
+
+    Parameters
+    ----------
+    trainData : np.ndarray
+        Training dataset values
+    testData : np,ndarray
+        Test dataset values
+    matrix_correlation : np.ndarray
+        correlation matrix
+    K : int
+        
+
+    Returns
+    -------
+    train_new : np.ndarray
+        Reconstructed training set
+
+    &#34;&#34;&#34;
+    users_length = len(trainData)#6040
+    item_length = len(trainData[0])#3952
+    
+    train_new = np.zeros((users_length, item_length))
+    for predicted_users in range(users_length):
+        K_closest = (-matrix_correlation[predicted_users]).argsort()[:K]
+        for item in range(item_length):
+            if testData[predicted_users, item] == 0:
+                continue
+            sum_corr = 0
+            for user_close in K_closest:
+                if trainData[user_close, item] != 0:
+                    train_new[predicted_users, item] += matrix_correlation[predicted_users, user_close] * trainData[user_close, item]
+                    sum_corr += matrix_correlation[predicted_users, user_close]
+            if sum_corr != 0:
+                train_new[predicted_users, item] /= sum_corr
+    return train_new</code></pre>
+</details>
+</dd>
+<dt id="Recommender-System.svd.compuation"><code class="name flex">
+<span>def <span class="ident">compuation</span></span>(<span>train_new, testData)</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>train_new</code></strong> :&ensp;<code>numpy.ndarray</code></dt>
+<dd>Training Set values</dd>
+<dt><strong><code>testData</code></strong> :&ensp;<code>numpy.ndarray</code></dt>
+<dd>Test Set Values</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>RMSE</code></strong> :&ensp;<code>float</code></dt>
+<dd>Returns the Root Mean Square Error value</dd>
+<dt><strong><code>SR_corr</code></strong> :&ensp;<code>float</code></dt>
+<dd>Returns the Spearman Rank Correlation</dd>
+<dt><strong><code>top_K_precision</code></strong> :&ensp;<code>float</code></dt>
+<dd>Return the precision on Top K value</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def compuation(train_new, testData):
+    &#34;&#34;&#34;
+    Parameters
+    ----------
+    train_new : numpy.ndarray
+        Training Set values
+    testData : numpy.ndarray
+        Test Set Values
+    Returns
+    -------
+    RMSE : float
+        Returns the Root Mean Square Error value
+    SR_corr : float
+        Returns the Spearman Rank Correlation
+    top_K_precision : float
+        Return the precision on Top K value
+    &#34;&#34;&#34;
+    users_length = len(train_new)
+    item_length = len(train_new[0])
+    error_square, test_n = 0, 0
+    for user in range(users_length):
+        for item in range(item_length):
+            if testData[user, item] == 0:
+                continue
+            else:
+                error_square += (testData[user, item] - train_new[user, item])**2
+                test_n += 1
+    
+    SR_corr = 1 - ((6 * error_square) / (test_n * (test_n**2 - 1)))
+    RMSE = (error_square / test_n) ** 0.5
+
+    top_K_precision = 0
+    K = 10
+    THRESHOLD = 3.5
+    rated_movies_count = {}
+    i = 0
+    for user in testData:
+        rated_movies_count[i] = user[user &gt; 0].size
+        i = i + 1
+    i = 0
+    precision_values = []
+    for user in train_new:
+        if rated_movies_count[i] &lt; K:
+            i = i + 1
+            continue
+        top_k_indices = (-user).argsort()[:K]
+        top_k_values = [(index, user[index]) for index in top_k_indices]
+        recommendations = []
+        for (index, user[index]) in top_k_values:
+            if(user[index] &gt;= 3.5):
+                recommendations.append((index, user[index]))
+                if len(recommendations) == K:
+                    break
+        cnt = 0
+        for tup in recommendations:
+            if testData[i][tup[0]] &gt;= THRESHOLD:
+                cnt = cnt + 1
+        if len(recommendations) &gt; 0:
+            precision = cnt/len(recommendations)
+            precision_values.append(precision)
+        i = i + 1
+    top_K_precision = sum(precision_values) / len(precision_values)
+    return RMSE, SR_corr, top_K_precision</code></pre>
+</details>
+</dd>
+<dt id="Recommender-System.svd.corr_matrix_construction"><code class="name flex">
+<span>def <span class="ident">corr_matrix_construction</span></span>(<span>data, file_name)</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>data</code></strong> :&ensp;<code>int</code></dt>
+<dd>user count</dd>
+<dt><strong><code>file_name</code></strong> :&ensp;<code>string</code></dt>
+<dd>File passed with previously obtained values</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>matrix_correlation</code></strong> :&ensp;<code>np.ndarray</code></dt>
+<dd>Correlation matrix obtained</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def corr_matrix_construction(data, file_name):
+    &#34;&#34;&#34;
+    
+
+    Parameters
+    ----------
+    data : int
+        user count
+    file_name : string
+        File passed with previously obtained values
+
+    Returns
+    -------
+    matrix_correlation : np.ndarray
+        Correlation matrix obtained
+
+    &#34;&#34;&#34;
+    users_length = len(data)
+    matrix_correlation = np.corrcoef(data)[:users_length+1, :users_length+1]
+    np.save(file_name, matrix_correlation)
+    return matrix_correlation</code></pre>
+</details>
+</dd>
+<dt id="Recommender-System.svd.energy_90_percent"><code class="name flex">
+<span>def <span class="ident">energy_90_percent</span></span>(<span>u, vt, sigma)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Function for SVD with 90% retained energy
+<br>
+Parameters</p>
+<hr>
+<dl>
+<dt><strong><code>u</code></strong> :&ensp;<code>np.ndarray</code></dt>
+<dd>user to conept similarlity matrix</dd>
+<dt><strong><code>vt</code></strong> :&ensp;<code>np.ndarray</code></dt>
+<dd>transpose of movie to concept similarity matrix</dd>
+<dt><strong><code>sigma</code></strong> :&ensp;<code>np.ndarray</code></dt>
+<dd>strength of each concept</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>u_n</code></strong> :&ensp;<code>np.ndarray</code></dt>
+<dd>Modified u</dd>
+<dt><strong><code>vt_n</code></strong> :&ensp;<code>np.ndarray</code></dt>
+<dd>Modied vt</dd>
+<dt><strong><code>sigma_n</code></strong> :&ensp;<code>np.ndarray</code></dt>
+<dd>Modied sigma</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def energy_90_percent(u, vt, sigma):
+    &#34;&#34;&#34;
+    Function for SVD with 90% retained energy    
+    Parameters
+    ----------
+    u : np.ndarray
+        user to conept similarlity matrix
+    vt : np.ndarray
+        transpose of movie to concept similarity matrix
+    sigma : np.ndarray
+        strength of each concept
+    Returns
+    -------
+    u_n : np.ndarray
+        Modified u
+    vt_n : np.ndarray
+        Modied vt
+    sigma_n : np.ndarray
+        Modied sigma
+    &#34;&#34;&#34;
+    
+    sigma_size = sigma.shape[0]
+    sigma_square_sum = 0
+    eigen_values_reqd = np.zeros(sigma_size)
+    
+    for i in range(sigma_size):
+        sigma_square_sum += sigma[i][i] * sigma[i][i]
+    curr_sum = 0
+    
+    for i in range(sigma_size):
+        curr_sum += sigma[i][i] * sigma[i][i]
+        eigen_values_reqd[i] = sigma[i][i]
+        if (curr_sum/sigma_square_sum) &gt;= 0.9:
+            i = i + 1
+            break
+    
+    eigen_values_reqd = eigen_values_reqd[eigen_values_reqd &gt; 0]
+    sigma_n = np.diag(eigen_values_reqd)
+    u_n = np.transpose(np.transpose(u)[:sigma_n.shape[0]])
+    vt_n = vt[:sigma_n.shape[0]]
+    return u_n, vt_n, sigma_n</code></pre>
+</details>
+</dd>
+<dt id="Recommender-System.svd.main"><code class="name flex">
+<span>def <span class="ident">main</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def main():
+    
+    K = 50
+    trainData = np.load(&#39;train.npy&#39;)
+    testData = np.load(&#39;test.npy&#39;)
+    
+    
+    try:
+        svd_matrix_correlation = np.load(&#39;svd_correlation_matrix.npy&#39;)
+        svd_90_matrix_correlation = np.load(&#39;svd_90_correlation_matrix.npy&#39;)
+    except FileNotFoundError:
+        u, vt, sigma = svd_matrix_construction(trainData)
+        u_n, vt_n, sigma_n = energy_90_percent(u, vt, sigma)
+        user_projection = np.matmul(u, sigma)
+        users_projection_90 = np.matmul(u_n, sigma_n)
+        
+        svd_matrix_correlation = corr_matrix_construction(user_projection, &#39;svd_correlation_matrix.npy&#39;)
+        svd_90_matrix_correlation = corr_matrix_construction(users_projection_90, &#39;svd_90_correlation_matrix.npy&#39;)
+    
+    
+    t0 = time.time()
+    
+    result_svd = collaborative_basic(trainData, testData, svd_matrix_correlation, K)
+    RMSE_svd, SR_corr_svd, precisionTopK_svd = compuation(result_svd, testData)
+    
+    #del result_svd
+    #del svd_matrix_correlation
+    
+    t1 = time.time()
+    print(&#39;\n&#39;)
+    print(&#39;SVD Result&#39;)
+    print(&#39;RMSE = {}&#39;.format(RMSE_svd))
+    print(&#39;Precision on top K = {}&#39;.format(precisionTopK_svd))
+    print(&#39;Spearman Rank Correlation = {}&#39;.format(SR_corr_svd))
+    print(&#39;Time Taken = {}&#39;.format(t1-t0))
+
+    t2 = time.time()
+    
+    
+    result_svd_90 = collaborative_basic(trainData, testData, svd_90_matrix_correlation, K)
+    RMSE_svd_90, SR_corr_svd_90, precisionTopK_svd_90 = compuation(result_svd_90, testData)
+    t3 = time.time()
+    print(&#39;\n&#39;)
+    
+    print(&#39;SVD 90% energy Result&#39;)
+    print(&#39;RMSE = {}&#39;.format(RMSE_svd_90))
+    print(&#39;Precision on top K = {}&#39;.format(precisionTopK_svd_90))
+    print(&#39;Spearman Rank Correlation = {}&#39;.format(SR_corr_svd_90))
+    print(&#39;Time Taken = {}&#39;.format(t3-t2))</code></pre>
+</details>
+</dd>
+<dt id="Recommender-System.svd.svd_matrix_construction"><code class="name flex">
+<span>def <span class="ident">svd_matrix_construction</span></span>(<span>A)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Function for SVD to get U , sigma and Vt</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>A</code></strong> :&ensp;<code>np.ndarray</code></dt>
+<dd>Utility Matrix</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>u</code></strong> :&ensp;<code>np.ndarray</code></dt>
+<dd>user to conept similarlity matrix</dd>
+<dt><strong><code>vt</code></strong> :&ensp;<code>np.ndarray</code></dt>
+<dd>transpose of movie to concept similarity matrix</dd>
+<dt><strong><code>sigma</code></strong> :&ensp;<code>np.ndarray</code></dt>
+<dd>strength of each concept</dd>
+<dt><code>Normalizes the Utility matrix consisting</code> of <code>users, movies and their ratings by</code></dt>
+<dd>&nbsp;</dd>
+<dt><code>replacing 0s in a row by their row mean.Performs SVD on the normalized utility</code></dt>
+<dd>&nbsp;</dd>
+</dl>
+<p>matrix and factorizes it into U, S and V*</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def svd_matrix_construction(A):
+    &#34;&#34;&#34;
+    Function for SVD to get U , sigma and Vt
+    
+    Parameters
+    ----------
+    A : np.ndarray
+        Utility Matrix
+    Returns
+    -------
+    u : np.ndarray
+        user to conept similarlity matrix
+    vt : np.ndarray
+        transpose of movie to concept similarity matrix
+    sigma : np.ndarray
+        strength of each concept
+    Normalizes the Utility matrix consisting of users, movies and their ratings by
+    replacing 0s in a row by their row mean.Performs SVD on the normalized utility
+    matrix and factorizes it into U, S and V*
+    
+    &#34;&#34;&#34;
+    
+    At = np.transpose(A)
+    A_At = np.matmul(A, At)
+    num_users = A.shape[0]
+    num_movies = A.shape[1]
+    At_A = np.matmul(At, A)
+    del A
+    del At
+    
+    eigen_value_u, eigen_vector_u = np.linalg.eigh(A_At)
+    eigen_value_v, eigen_vector_v = np.linalg.eigh(At_A)
+    
+    pos_eigen_u = []
+    pos_eigen_v = []
+    
+    for val in eigen_value_u.tolist():
+        if(val &gt; 0):
+            pos_eigen_u.append(val)
+    for val in eigen_value_v.tolist():
+        if(val &gt; 0):
+            pos_eigen_v.append(val)
+    
+    pos_eigen_u.reverse()
+    pos_eigen_v.reverse()
+    squareroot_eigen_u = [sqrt(val) for val in pos_eigen_u]
+    squareroot_eigen_u = np.array(squareroot_eigen_u)
+    
+    sigma = np.diag(squareroot_eigen_u)
+    sigma_size = sigma.shape[0]
+    
+    ut = np.zeros(shape = (sigma_size, num_users))
+    vt = np.zeros(shape = (sigma_size, num_movies))
+    i = 0
+    for val in pos_eigen_u:
+        ut[i] = eigen_vector_u[eigen_value_u.tolist().index(val)]
+        i = i + 1
+    i = 0
+    for val in pos_eigen_v:
+        vt[i] = eigen_vector_v[eigen_value_v.tolist().index(val)]
+        i = i + 1
+    u = np.transpose(ut)
+    del ut
+    return u, vt, sigma</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="Recommender-System" href="index.html">Recommender-System</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="Recommender-System.svd.collaborative_basic" href="#Recommender-System.svd.collaborative_basic">collaborative_basic</a></code></li>
+<li><code><a title="Recommender-System.svd.compuation" href="#Recommender-System.svd.compuation">compuation</a></code></li>
+<li><code><a title="Recommender-System.svd.corr_matrix_construction" href="#Recommender-System.svd.corr_matrix_construction">corr_matrix_construction</a></code></li>
+<li><code><a title="Recommender-System.svd.energy_90_percent" href="#Recommender-System.svd.energy_90_percent">energy_90_percent</a></code></li>
+<li><code><a title="Recommender-System.svd.main" href="#Recommender-System.svd.main">main</a></code></li>
+<li><code><a title="Recommender-System.svd.svd_matrix_construction" href="#Recommender-System.svd.svd_matrix_construction">svd_matrix_construction</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.1</a>.</p>
+</footer>
+</body>
+</html>

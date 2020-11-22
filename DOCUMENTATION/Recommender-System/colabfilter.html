@@ -1,0 +1,808 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.1" />
+<title>Recommender-System.colabfilter API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>Recommender-System.colabfilter</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import math
+import time
+import pandas as pd
+from sklearn.model_selection import train_test_split
+
+def createUtilityMatrix(df):
+        &#39;&#39;&#39;
+        Helper function to create user x movie matrix and other utilities 
+        &#39;&#39;&#39;
+        matrix={}
+        inverse_matrix={}
+        l = len(df)
+        # Bias for each user
+        biasU={}
+        countU={}
+        # Bias for each movie
+        biasM={}
+        countM={}
+
+        rating_sum = 0
+
+        for i in df.index:
+                user = df[&#39;user&#39;][i]
+                movie = df[&#39;movie&#39;][i]
+                rating = df[&#39;rating&#39;][i]
+                rating_sum += rating
+
+                if matrix.get(user):
+                        matrix[user][movie] = rating
+                else:
+                        matrix[user] = {movie: rating}
+                if inverse_matrix.get(movie):
+                        inverse_matrix[movie][user] = rating
+                else:
+                        inverse_matrix[movie] = {user: rating}
+
+                if biasU.get(user):
+                        biasU[user] += rating
+                        countU[user] += 1
+                else:
+                        biasU[user] = rating
+                        countU[user] = 1
+
+                if biasM.get(movie):
+                        biasM[movie] += rating
+                        countM[movie] += 1
+                else:
+                        biasM[movie] = rating
+                        countM[movie] = 1
+
+        global_mean = rating_sum/l
+        for user in biasU:
+                        biasU[user] = biasU[user] / countU[user]
+                        biasU[user] = biasU[user] - global_mean
+        for movie in biasM:
+                biasM[movie] = biasM[movie] / countM[movie]
+                biasM[movie] = biasM[movie] - global_mean
+
+        return matrix, inverse_matrix, biasU, biasM, global_mean
+
+def predict_item(A_train, inv_mat, biasU, biasM, gm, user, movie):
+        &#39;&#39;&#39;
+        Uses item - item filtering approach
+        Predicts the rating given by user &#39;user&#39; to movie &#39;movie&#39;
+    Parameters
+    ----------
+    A_train : dict
+        utility matrix in dictionary format
+    inv_mat : dict
+        inverse dictionary from movies to users
+    biasU : dict
+                User bias
+    biasM : dict
+                Movie bias
+    gm : integer
+                global mean over all the movies
+    user : integer
+                userID
+    movie : integer
+        movieID
+    Returns
+    ----------
+    rating : integer
+        predicted rating
+        &#39;&#39;&#39;
+        ium = inv_mat
+        um = A_train
+        mu = gm
+        if um.get(user) == None:
+                if ium.get(movie) == None:
+                        return mu
+                else:
+                        return biasM[movie] + mu
+        elif ium.get(movie) == None:
+                return mu + biasU[user]
+        ix = ium[movie]
+        b1 = -(biasM[movie] + mu)
+        scores = []
+        for moviey in um[user]:
+                if moviey == movie:
+                        continue
+                iy = ium[moviey]
+                b2 = -(biasM[moviey] + mu)
+                sxy = sim(ix, iy, b1, b2)
+                scores.append((sxy, um[user][moviey] + b2))
+        scores.sort(reverse=True)
+        return get_rating(scores, -b1)
+
+def predict_user(A_train, inv_mat, biasU, biasM, gm, user, movie):
+        &#39;&#39;&#39;
+        Uses user - user filtering to find predicted rating
+        &#39;&#39;&#39;
+        ium = inv_mat
+        um = A_train
+        mu = gm
+        if um.get(user) == None:
+                if ium.get(movie) == None:
+                        return mu
+                else:
+                        return biasM[movie] + mu
+        elif ium.get(movie) == None:
+                return mu + biasU[user]
+        ix = um[user]
+        b1 = -(biasU[user] + mu)
+        scores = []
+        for usery in ium[movie]:
+                if usery == user:
+                        continue
+                iy = um[usery]
+                b2 = -(biasU[usery] + mu)
+                sxy = sim(ix, iy, b1, b2)
+                scores.append((sxy, ium[movie][usery] + b2))
+        scores.sort(reverse=True)
+        return get_rating(scores, -b1)
+
+def predict_baseline(A_train, inv_mat, biasU, biasM, gm, user, movie):
+        &#39;&#39;&#39;
+        Uses baseline approach in collaborative filtering to find predicted rating
+        &#39;&#39;&#39;
+        ium = inv_mat
+        um = A_train
+        mu = gm
+        if um.get(user) == None:
+                if ium.get(movie) == None:
+                        return mu
+                else:
+                        return biasM[movie] + mu
+        elif ium.get(movie) == None:
+                return mu + biasU[user]
+        baseline = mu + biasU[user] + biasM[movie]
+        ix = ium[movie]
+        b1 = -(biasM[movie] + mu)
+        scores = []
+        for moviey in um[user]:
+                if moviey == movie:
+                        continue
+                iy = ium[moviey]
+                b2 = -(biasM[moviey] + mu)
+                sxy = sim(ix, iy, b1, b2)
+                baseliney = mu + biasU[user] + biasM[moviey]
+                scores.append((sxy, um[user][moviey] - baseliney))
+        scores.sort(reverse=True)
+        return get_rating(scores, baseline)
+
+def get_rating(scores, base):
+        &#39;&#39;&#39;
+        Computes the rating using weighted average of top k scores
+        &#39;&#39;&#39;
+        l = min(5, len(scores))
+        rating = 0
+        den = 0
+        for i in range(l):
+                rating += (scores[i][0]) * scores[i][1]
+                den += abs(scores[i][0])
+        if den == 0:
+                return bound(base)
+        rating = rating / den
+        rating += base
+        return bound(rating)
+
+def sim(vec1, vec2, b1, b2):
+        &#39;&#39;&#39;
+        Finds cosine similarity between given two vectors
+        Arguments:
+                vec1: first vector
+                vec2: second vector
+                b1: bias for first vector
+                b2: bias for second vector
+        &#39;&#39;&#39;
+        b1 = 0
+        b2 = 0
+        sim = 0
+        # Normalization constants
+        n1 = 0
+        n2 = 0
+        for feature in vec1:
+                a = vec1[feature] + b1
+                if vec2.get(feature):
+                        b = vec2[feature] + b2
+                        sim += a * b
+                n1 += a * a
+        for feature in vec2:
+                b = vec2[feature] + b2
+                n2 += b * b
+        if sim == 0:
+                return 0
+        n1 = math.sqrt(n1)
+        n2 = math.sqrt(n2)
+        return sim / (n1 * n2)
+
+def bound(rating):
+        &#39;&#39;&#39;
+        Bounds the rating in the range [1, 5]
+        &#39;&#39;&#39;
+        return min(max(rating, 1), 5)
+
+def calc_loss(data):
+        &#39;&#39;&#39;
+        Computes RMSE loss, Spearman rank correlation and Precision at rank k for the data given in utilmat
+        &#39;&#39;&#39;
+        data = data.sample(frac = 1)
+        split_value = 100
+        train_data = data.iloc[:-split_value, :]
+        test_data = data.iloc[-split_value:,:]
+        # print(test_data.head())
+
+        A_train, inv_mat, biasU, biasM, gm = createUtilityMatrix(train_data)
+        A_test, inv_mat_test, biasU_test, biasM_test, gm_test = createUtilityMatrix(test_data)
+
+        # print(&#34;Matrices created successfully&#34;)
+
+        testmatrix = A_test
+        # print(&#34;Number of rows in test matrix is = &#34;, len(A_test))
+        #Root mean square 
+        rmse_u = 0
+        rmse_i = 0
+        rmse_b = 0
+        #Spearman Rank Correlation
+        src_u = 0
+        src_i = 0
+        src_b = 0
+        cnt = 0
+        fullcnt = 0
+        #precision at rank 5
+        precision_k_items_vals = []
+        precision_k_baseline_vals = []
+        start = time.time()
+        for user in testmatrix:
+                #dict containing pred-&gt;actual
+                precision_k_item = {}
+                precision_k_baseline = {}
+                for movie in testmatrix[user]:
+                        actual = testmatrix[user][movie]
+                        # predu = predict_user(A_train, inv_mat, biasU, biasM, gm, user, movie)
+                        predu = 0
+                        predi = predict_item(A_train, inv_mat, biasU, biasM, gm, user, movie)
+                        predb = predict_baseline(A_train, inv_mat, biasU, biasM, gm, user, movie)
+                        precision_k_item[predi] = actual
+                        precision_k_baseline[predb] = actual
+                        rmse_u += (actual - predu) ** 2
+                        rmse_i += (actual - predi) ** 2
+                        rmse_b += (actual - predb) ** 2
+                        # print(cnt,user,movie,actual,predi,predb)
+                        cnt += 1
+                #sort in reverse based on first val and check first 5
+                pcnt = 0
+                num = 0
+                den = 0
+                for p in sorted(precision_k_item,reverse=True):
+                        if p &gt; 3.5:
+                                if precision_k_item[p] &gt; 3.5:
+                                        num+=1
+                                den+=1
+                        else:
+                                break
+                        pcnt+=1
+                        if pcnt==5:
+                                break
+                if den&gt;0:
+                        precision_k_items_vals.append((num/den))
+
+                pcnt = 0
+                num = 0
+                den = 0
+                for p in sorted(precision_k_baseline,reverse=True):
+                        if p &gt; 3.5:
+                                if precision_k_baseline[p] &gt; 3.5:
+                                        num+=1
+                                den+=1
+                        else:
+                                break
+                        pcnt+=1
+                        if pcnt==5:
+                                break
+                if den&gt;0:               
+                        precision_k_baseline_vals.append((num/den))
+
+        src_u = 1 - ((6 * rmse_u)/(cnt ** 3 - cnt))
+        src_i = 1 - ((6 * rmse_i)/(cnt ** 3 - cnt))
+        src_b = 1 - ((6 * rmse_b)/(cnt ** 3 - cnt))
+        rmse_b /= cnt
+        rmse_u /= cnt
+        rmse_i /= cnt
+
+        precision_i = 0
+        precision_b = 0
+        for i in range(len(precision_k_items_vals)):
+                precision_i += precision_k_items_vals[i]
+        precision_i /= len(precision_k_items_vals)
+
+        for i in range(len(precision_k_baseline_vals)):
+                precision_b += precision_k_baseline_vals[i]
+        precision_b /= len(precision_k_baseline_vals)
+        print(&#34;Time taken for collaborative filtering = &#34;,time.time() - start)
+        return rmse_b, rmse_i, src_b, src_i, precision_b, precision_i </code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="Recommender-System.colabfilter.bound"><code class="name flex">
+<span>def <span class="ident">bound</span></span>(<span>rating)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Bounds the rating in the range [1, 5]</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def bound(rating):
+        &#39;&#39;&#39;
+        Bounds the rating in the range [1, 5]
+        &#39;&#39;&#39;
+        return min(max(rating, 1), 5)</code></pre>
+</details>
+</dd>
+<dt id="Recommender-System.colabfilter.calc_loss"><code class="name flex">
+<span>def <span class="ident">calc_loss</span></span>(<span>data)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Computes RMSE loss, Spearman rank correlation and Precision at rank k for the data given in utilmat</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def calc_loss(data):
+        &#39;&#39;&#39;
+        Computes RMSE loss, Spearman rank correlation and Precision at rank k for the data given in utilmat
+        &#39;&#39;&#39;
+        data = data.sample(frac = 1)
+        split_value = 100
+        train_data = data.iloc[:-split_value, :]
+        test_data = data.iloc[-split_value:,:]
+        # print(test_data.head())
+
+        A_train, inv_mat, biasU, biasM, gm = createUtilityMatrix(train_data)
+        A_test, inv_mat_test, biasU_test, biasM_test, gm_test = createUtilityMatrix(test_data)
+
+        # print(&#34;Matrices created successfully&#34;)
+
+        testmatrix = A_test
+        # print(&#34;Number of rows in test matrix is = &#34;, len(A_test))
+        #Root mean square 
+        rmse_u = 0
+        rmse_i = 0
+        rmse_b = 0
+        #Spearman Rank Correlation
+        src_u = 0
+        src_i = 0
+        src_b = 0
+        cnt = 0
+        fullcnt = 0
+        #precision at rank 5
+        precision_k_items_vals = []
+        precision_k_baseline_vals = []
+        start = time.time()
+        for user in testmatrix:
+                #dict containing pred-&gt;actual
+                precision_k_item = {}
+                precision_k_baseline = {}
+                for movie in testmatrix[user]:
+                        actual = testmatrix[user][movie]
+                        # predu = predict_user(A_train, inv_mat, biasU, biasM, gm, user, movie)
+                        predu = 0
+                        predi = predict_item(A_train, inv_mat, biasU, biasM, gm, user, movie)
+                        predb = predict_baseline(A_train, inv_mat, biasU, biasM, gm, user, movie)
+                        precision_k_item[predi] = actual
+                        precision_k_baseline[predb] = actual
+                        rmse_u += (actual - predu) ** 2
+                        rmse_i += (actual - predi) ** 2
+                        rmse_b += (actual - predb) ** 2
+                        # print(cnt,user,movie,actual,predi,predb)
+                        cnt += 1
+                #sort in reverse based on first val and check first 5
+                pcnt = 0
+                num = 0
+                den = 0
+                for p in sorted(precision_k_item,reverse=True):
+                        if p &gt; 3.5:
+                                if precision_k_item[p] &gt; 3.5:
+                                        num+=1
+                                den+=1
+                        else:
+                                break
+                        pcnt+=1
+                        if pcnt==5:
+                                break
+                if den&gt;0:
+                        precision_k_items_vals.append((num/den))
+
+                pcnt = 0
+                num = 0
+                den = 0
+                for p in sorted(precision_k_baseline,reverse=True):
+                        if p &gt; 3.5:
+                                if precision_k_baseline[p] &gt; 3.5:
+                                        num+=1
+                                den+=1
+                        else:
+                                break
+                        pcnt+=1
+                        if pcnt==5:
+                                break
+                if den&gt;0:               
+                        precision_k_baseline_vals.append((num/den))
+
+        src_u = 1 - ((6 * rmse_u)/(cnt ** 3 - cnt))
+        src_i = 1 - ((6 * rmse_i)/(cnt ** 3 - cnt))
+        src_b = 1 - ((6 * rmse_b)/(cnt ** 3 - cnt))
+        rmse_b /= cnt
+        rmse_u /= cnt
+        rmse_i /= cnt
+
+        precision_i = 0
+        precision_b = 0
+        for i in range(len(precision_k_items_vals)):
+                precision_i += precision_k_items_vals[i]
+        precision_i /= len(precision_k_items_vals)
+
+        for i in range(len(precision_k_baseline_vals)):
+                precision_b += precision_k_baseline_vals[i]
+        precision_b /= len(precision_k_baseline_vals)
+        print(&#34;Time taken for collaborative filtering = &#34;,time.time() - start)
+        return rmse_b, rmse_i, src_b, src_i, precision_b, precision_i </code></pre>
+</details>
+</dd>
+<dt id="Recommender-System.colabfilter.createUtilityMatrix"><code class="name flex">
+<span>def <span class="ident">createUtilityMatrix</span></span>(<span>df)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Helper function to create user x movie matrix and other utilities</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def createUtilityMatrix(df):
+        &#39;&#39;&#39;
+        Helper function to create user x movie matrix and other utilities 
+        &#39;&#39;&#39;
+        matrix={}
+        inverse_matrix={}
+        l = len(df)
+        # Bias for each user
+        biasU={}
+        countU={}
+        # Bias for each movie
+        biasM={}
+        countM={}
+
+        rating_sum = 0
+
+        for i in df.index:
+                user = df[&#39;user&#39;][i]
+                movie = df[&#39;movie&#39;][i]
+                rating = df[&#39;rating&#39;][i]
+                rating_sum += rating
+
+                if matrix.get(user):
+                        matrix[user][movie] = rating
+                else:
+                        matrix[user] = {movie: rating}
+                if inverse_matrix.get(movie):
+                        inverse_matrix[movie][user] = rating
+                else:
+                        inverse_matrix[movie] = {user: rating}
+
+                if biasU.get(user):
+                        biasU[user] += rating
+                        countU[user] += 1
+                else:
+                        biasU[user] = rating
+                        countU[user] = 1
+
+                if biasM.get(movie):
+                        biasM[movie] += rating
+                        countM[movie] += 1
+                else:
+                        biasM[movie] = rating
+                        countM[movie] = 1
+
+        global_mean = rating_sum/l
+        for user in biasU:
+                        biasU[user] = biasU[user] / countU[user]
+                        biasU[user] = biasU[user] - global_mean
+        for movie in biasM:
+                biasM[movie] = biasM[movie] / countM[movie]
+                biasM[movie] = biasM[movie] - global_mean
+
+        return matrix, inverse_matrix, biasU, biasM, global_mean</code></pre>
+</details>
+</dd>
+<dt id="Recommender-System.colabfilter.get_rating"><code class="name flex">
+<span>def <span class="ident">get_rating</span></span>(<span>scores, base)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Computes the rating using weighted average of top k scores</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_rating(scores, base):
+        &#39;&#39;&#39;
+        Computes the rating using weighted average of top k scores
+        &#39;&#39;&#39;
+        l = min(5, len(scores))
+        rating = 0
+        den = 0
+        for i in range(l):
+                rating += (scores[i][0]) * scores[i][1]
+                den += abs(scores[i][0])
+        if den == 0:
+                return bound(base)
+        rating = rating / den
+        rating += base
+        return bound(rating)</code></pre>
+</details>
+</dd>
+<dt id="Recommender-System.colabfilter.predict_baseline"><code class="name flex">
+<span>def <span class="ident">predict_baseline</span></span>(<span>A_train, inv_mat, biasU, biasM, gm, user, movie)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Uses baseline approach in collaborative filtering to find predicted rating</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def predict_baseline(A_train, inv_mat, biasU, biasM, gm, user, movie):
+        &#39;&#39;&#39;
+        Uses baseline approach in collaborative filtering to find predicted rating
+        &#39;&#39;&#39;
+        ium = inv_mat
+        um = A_train
+        mu = gm
+        if um.get(user) == None:
+                if ium.get(movie) == None:
+                        return mu
+                else:
+                        return biasM[movie] + mu
+        elif ium.get(movie) == None:
+                return mu + biasU[user]
+        baseline = mu + biasU[user] + biasM[movie]
+        ix = ium[movie]
+        b1 = -(biasM[movie] + mu)
+        scores = []
+        for moviey in um[user]:
+                if moviey == movie:
+                        continue
+                iy = ium[moviey]
+                b2 = -(biasM[moviey] + mu)
+                sxy = sim(ix, iy, b1, b2)
+                baseliney = mu + biasU[user] + biasM[moviey]
+                scores.append((sxy, um[user][moviey] - baseliney))
+        scores.sort(reverse=True)
+        return get_rating(scores, baseline)</code></pre>
+</details>
+</dd>
+<dt id="Recommender-System.colabfilter.predict_item"><code class="name flex">
+<span>def <span class="ident">predict_item</span></span>(<span>A_train, inv_mat, biasU, biasM, gm, user, movie)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Uses item - item filtering approach
+Predicts the rating given by user 'user' to movie 'movie'
+Parameters</p>
+<hr>
+<dl>
+<dt><strong><code>A_train</code></strong> :&ensp;<code>dict</code></dt>
+<dd>utility matrix in dictionary format</dd>
+<dt><strong><code>inv_mat</code></strong> :&ensp;<code>dict</code></dt>
+<dd>inverse dictionary from movies to users</dd>
+<dt><strong><code>biasU</code></strong> :&ensp;<code>dict</code></dt>
+<dd>User bias</dd>
+<dt><strong><code>biasM</code></strong> :&ensp;<code>dict</code></dt>
+<dd>Movie bias</dd>
+<dt><strong><code>gm</code></strong> :&ensp;<code>integer</code></dt>
+<dd>global mean over all the movies</dd>
+<dt><strong><code>user</code></strong> :&ensp;<code>integer</code></dt>
+<dd>userID</dd>
+<dt><strong><code>movie</code></strong> :&ensp;<code>integer</code></dt>
+<dd>movieID</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>rating</code></strong> :&ensp;<code>integer</code></dt>
+<dd>predicted rating</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def predict_item(A_train, inv_mat, biasU, biasM, gm, user, movie):
+        &#39;&#39;&#39;
+        Uses item - item filtering approach
+        Predicts the rating given by user &#39;user&#39; to movie &#39;movie&#39;
+    Parameters
+    ----------
+    A_train : dict
+        utility matrix in dictionary format
+    inv_mat : dict
+        inverse dictionary from movies to users
+    biasU : dict
+                User bias
+    biasM : dict
+                Movie bias
+    gm : integer
+                global mean over all the movies
+    user : integer
+                userID
+    movie : integer
+        movieID
+    Returns
+    ----------
+    rating : integer
+        predicted rating
+        &#39;&#39;&#39;
+        ium = inv_mat
+        um = A_train
+        mu = gm
+        if um.get(user) == None:
+                if ium.get(movie) == None:
+                        return mu
+                else:
+                        return biasM[movie] + mu
+        elif ium.get(movie) == None:
+                return mu + biasU[user]
+        ix = ium[movie]
+        b1 = -(biasM[movie] + mu)
+        scores = []
+        for moviey in um[user]:
+                if moviey == movie:
+                        continue
+                iy = ium[moviey]
+                b2 = -(biasM[moviey] + mu)
+                sxy = sim(ix, iy, b1, b2)
+                scores.append((sxy, um[user][moviey] + b2))
+        scores.sort(reverse=True)
+        return get_rating(scores, -b1)</code></pre>
+</details>
+</dd>
+<dt id="Recommender-System.colabfilter.predict_user"><code class="name flex">
+<span>def <span class="ident">predict_user</span></span>(<span>A_train, inv_mat, biasU, biasM, gm, user, movie)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Uses user - user filtering to find predicted rating</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def predict_user(A_train, inv_mat, biasU, biasM, gm, user, movie):
+        &#39;&#39;&#39;
+        Uses user - user filtering to find predicted rating
+        &#39;&#39;&#39;
+        ium = inv_mat
+        um = A_train
+        mu = gm
+        if um.get(user) == None:
+                if ium.get(movie) == None:
+                        return mu
+                else:
+                        return biasM[movie] + mu
+        elif ium.get(movie) == None:
+                return mu + biasU[user]
+        ix = um[user]
+        b1 = -(biasU[user] + mu)
+        scores = []
+        for usery in ium[movie]:
+                if usery == user:
+                        continue
+                iy = um[usery]
+                b2 = -(biasU[usery] + mu)
+                sxy = sim(ix, iy, b1, b2)
+                scores.append((sxy, ium[movie][usery] + b2))
+        scores.sort(reverse=True)
+        return get_rating(scores, -b1)</code></pre>
+</details>
+</dd>
+<dt id="Recommender-System.colabfilter.sim"><code class="name flex">
+<span>def <span class="ident">sim</span></span>(<span>vec1, vec2, b1, b2)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Finds cosine similarity between given two vectors</p>
+<h2 id="arguments">Arguments</h2>
+<p>vec1: first vector
+vec2: second vector
+b1: bias for first vector
+b2: bias for second vector</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def sim(vec1, vec2, b1, b2):
+        &#39;&#39;&#39;
+        Finds cosine similarity between given two vectors
+        Arguments:
+                vec1: first vector
+                vec2: second vector
+                b1: bias for first vector
+                b2: bias for second vector
+        &#39;&#39;&#39;
+        b1 = 0
+        b2 = 0
+        sim = 0
+        # Normalization constants
+        n1 = 0
+        n2 = 0
+        for feature in vec1:
+                a = vec1[feature] + b1
+                if vec2.get(feature):
+                        b = vec2[feature] + b2
+                        sim += a * b
+                n1 += a * a
+        for feature in vec2:
+                b = vec2[feature] + b2
+                n2 += b * b
+        if sim == 0:
+                return 0
+        n1 = math.sqrt(n1)
+        n2 = math.sqrt(n2)
+        return sim / (n1 * n2)</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="Recommender-System" href="index.html">Recommender-System</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="two-column">
+<li><code><a title="Recommender-System.colabfilter.bound" href="#Recommender-System.colabfilter.bound">bound</a></code></li>
+<li><code><a title="Recommender-System.colabfilter.calc_loss" href="#Recommender-System.colabfilter.calc_loss">calc_loss</a></code></li>
+<li><code><a title="Recommender-System.colabfilter.createUtilityMatrix" href="#Recommender-System.colabfilter.createUtilityMatrix">createUtilityMatrix</a></code></li>
+<li><code><a title="Recommender-System.colabfilter.get_rating" href="#Recommender-System.colabfilter.get_rating">get_rating</a></code></li>
+<li><code><a title="Recommender-System.colabfilter.predict_baseline" href="#Recommender-System.colabfilter.predict_baseline">predict_baseline</a></code></li>
+<li><code><a title="Recommender-System.colabfilter.predict_item" href="#Recommender-System.colabfilter.predict_item">predict_item</a></code></li>
+<li><code><a title="Recommender-System.colabfilter.predict_user" href="#Recommender-System.colabfilter.predict_user">predict_user</a></code></li>
+<li><code><a title="Recommender-System.colabfilter.sim" href="#Recommender-System.colabfilter.sim">sim</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.1</a>.</p>
+</footer>
+</body>
+</html>
