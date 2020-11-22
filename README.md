@@ -22,6 +22,17 @@ The above two files are used for preprocessing. After running the above two file
 3. CUR Decomposition : 
 <pre><code>python CUR.py</code></pre>
 
+## Packages Used ##
+
+## Pandas: ## 
+For easy data manipulation by use of DataFrames
+## Numpy: ## For matrix multiplication
+## Sklearn.model_selection:# for train_test_split function
+## Sklearn.metrics:# for finding Mean squared Error
+## Math:# Sqrt function
+## Time:# to compute time taken by various techniques
+
+
 ## Team Members ##
 - Soumil Agarwal &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   2017B4A71606H
 - Giridhar Bajpai  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2017B4A71451H
