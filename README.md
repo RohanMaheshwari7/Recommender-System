@@ -24,13 +24,12 @@ The above two files are used for preprocessing. After running the above two file
 
 ## Packages Used ##
 
-## Pandas: ## 
-For easy data manipulation by use of DataFrames
-## Numpy: ## For matrix multiplication
-## Sklearn.model_selection:# for train_test_split function
-## Sklearn.metrics:# for finding Mean squared Error
-## Math:# Sqrt function
-## Time:# to compute time taken by various techniques
+Pandas: For easy data manipulation by use of DataFrames
+Numpy:For matrix multiplication
+Sklearn.model_selection: for train_test_split function
+Sklearn.metrics: for finding Mean squared Error
+Math: Sqrt function
+Time: to compute time taken by various techniques
 
 
 ## Team Members ##
